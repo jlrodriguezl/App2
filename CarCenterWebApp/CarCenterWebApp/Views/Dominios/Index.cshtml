@@ -29,7 +29,7 @@
                     <input type="button" value="Editar" class="btn btn-default" 
                            onclick="document.location.href='@Url.Content("~/Dominios/Edit/?tipoDominio="+oDominio.TipoDominio + "&idDominio=" + oDominio.IdDominio)'"/>
                     <input type="button" value="Eliminar" class="btn btn-danger" 
-                           onclick="jsDelete(@oDominio.TipoDominio, @oDominio.IdDominio);"/>
+                           onclick="jsDelete('@oDominio.TipoDominio', '@oDominio.IdDominio');"/>
                 </td>
             </tr>
             }
@@ -38,7 +38,16 @@
 </div>
 <script>
     function jsDelete(tipo, id) {
+        if (confirm("Está seguro de eliminar este registro?")) {
+            url = "@Url.Content("~/Dominios/Delete")" + "/?tipo=" + tipo + "&id=" + id;
 
+            $.post(url, function (data) {
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/Dominios/")";
+                } else {
+                    alert("Error :(");
+                }
+            })
+        }
     }
-
 </script>

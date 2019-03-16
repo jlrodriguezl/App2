@@ -93,5 +93,17 @@ namespace CarCenterWebApp.Controllers
             return Redirect(Url.Content("~/Dominios/"));
 
         }
+
+        [HttpPost]
+        public ActionResult Delete(String tipo, String id)
+        {  
+            using (carcenterEntities db = new carcenterEntities())
+            {
+                var oDominio = db.DOMINIOS.Find(tipo, id);
+                db.DOMINIOS.Remove(oDominio);
+                db.SaveChanges();
+            }
+            return Content("1");
+        }
     }
 }
