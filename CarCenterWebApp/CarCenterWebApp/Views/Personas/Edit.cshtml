@@ -1,7 +1,16 @@
-﻿
+﻿@model CarCenterWebApp.Models.DTOs.PersonasDTO
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Personas";
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Edit","Personas",FormMethod.Post, new { role = "form" }))
+        {
+
+        }
+    </div>
+</div>
 
