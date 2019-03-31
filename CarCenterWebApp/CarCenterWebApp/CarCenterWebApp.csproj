@@ -201,6 +201,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\CarCenterLogo.jpg" />
+    <Content Include="Content\Images\logo_poli.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -235,6 +237,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Content\Images\CarCenterIcono.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -255,9 +258,13 @@
     <Content Include="Views\Dominios\Add.cshtml" />
     <Content Include="Views\Dominios\Edit.cshtml" />
     <Content Include="Views\PersonaVehiculo\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Personas\Add.cshtml" />
     <Content Include="Views\Personas\Edit.cshtml" />
     <Content Include="Views\Personas\Index.cshtml" />
+=======
+    <Content Include="Views\Shared\_LayoutHome.cshtml" />
+>>>>>>> dev
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

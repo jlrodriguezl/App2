@@ -15,8 +15,10 @@ namespace CarCenterWebApp.Controllers
         {
             PersonaVehiculoDTO personaVehiculoDTO = new PersonaVehiculoDTO();
             List<DominiosDTO> lstColores = null;
+            List<DominiosDTO> lstMarcas = null;
+            List<DominiosDTO> lstTipoVehiculo = null;
             using (carcenterEntities db = new carcenterEntities())
-            {
+            {                
                 lstColores = (from d in db.DOMINIOS
                               where d.TIPO_DOMINIO == "COLORES"
                               orderby d.VLR_DOMINIO
@@ -27,12 +29,34 @@ namespace CarCenterWebApp.Controllers
                                   VlrDominio = d.VLR_DOMINIO
                               }).ToList();
                 personaVehiculoDTO.LstColores = lstColores;
+
+                lstMarcas = (from d in db.DOMINIOS
+                              where d.TIPO_DOMINIO == "MARCAS"
+                              orderby d.VLR_DOMINIO
+                              select new DominiosDTO
+                              {
+                                  IdDominio = d.ID_DOMINIO,
+                                  TipoDominio = d.TIPO_DOMINIO,
+                                  VlrDominio = d.VLR_DOMINIO
+                              }).ToList();
+                personaVehiculoDTO.LstMarcas = lstMarcas;
+
+                lstTipoVehiculo = (from d in db.DOMINIOS
+                             where d.TIPO_DOMINIO == "TIPOS_VEHICULO"
+                             orderby d.VLR_DOMINIO
+                             select new DominiosDTO
+                             {
+                                 IdDominio = d.ID_DOMINIO,
+                                 TipoDominio = d.TIPO_DOMINIO,
+                                 VlrDominio = d.VLR_DOMINIO
+                             }).ToList();
+                personaVehiculoDTO.LstTipoVehiculo = lstTipoVehiculo;
             }
             return View(personaVehiculoDTO);
         }
 
         [HttpPost]
-        public ActionResult AddPersonaVehiculo(PersonaVehiculoDTO model)
+        public ActionResult Index(PersonaVehiculoDTO model)
         {
             //Validar los datos del formulario con base en los Data Annotations
             if (!ModelState.IsValid)
@@ -59,6 +83,7 @@ namespace CarCenterWebApp.Controllers
                 v.MODELO = model.Modelo;
                 v.TIPO_VEHICULO = model.TipoVehiculo;
                 v.COLOR = model.Color;
+                v.MARCA = model.Marca;
 
                 db.VEHICULOS.Add(v);
 

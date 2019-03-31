@@ -26,19 +26,20 @@ namespace CarCenterWebApp.Models.DTOs
         [Display(Name = "Correo")]
         [StringLength(100)]
         public string Correo { get; set; }
-        [Required]
+        
         [Display(Name = "Especialidad")]
         [StringLength(10)]
         public string Especialidad { get; set; }
-        [Required]
+        
         [Display(Name = "Tipo Persona")]
         [StringLength(10)]
         public string TipoPersona { get; set; }
         [Required]
-        [Display(Name = "Conttraseña")]
+        [Display(Name = "Contraseña")]
         [StringLength(12)]
+        [DataType(DataType.Password)]
         public string Contrasena { get; set; }
-        [Required]
+        
         [Display(Name = "Estado")]
         [StringLength(10)]
         public string EstadoPesona { get; set; }
@@ -61,13 +62,15 @@ namespace CarCenterWebApp.Models.DTOs
         [Display(Name = "Tipo Vehículo")]
         [StringLength(10)]
         public string TipoVehiculo { get; set; }
-        [Required]
+       
         [Display(Name = "Propietario")]
         [StringLength(10)]
         public string EstadoProp { get; set; }
 
         //Listas
         public List<DominiosDTO> LstColores { get; set; }
+        public List<DominiosDTO> LstMarcas { get; set; }
+        public List<DominiosDTO> LstTipoVehiculo { get; set; }
 
     }
 }

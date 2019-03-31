@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-md-12">
         <!-- Inicio del formulario de inserción Params(1->Action, 2->Controller, 3->Method, 4->Params)-->
-        @using (Html.BeginForm("Add", "PersonaVehiculo", FormMethod.Post, new { role = "form" }))
+        @using (Html.BeginForm("Index", "PersonaVehiculo", FormMethod.Post, new { role = "form" }))
         {
             <!--Helper de seguridad para evitar invocaciones al form desde fuera de la app-->
             @Html.AntiForgeryToken()
@@ -49,7 +49,7 @@
                     </td>
                     <td>
                         @Html.LabelFor(pv => pv.Contrasena)
-                        @Html.TextBoxFor(pv => pv.Contrasena, new { @class = "form-control" })
+                        @Html.PasswordFor(pv => pv.Contrasena, new { @class = "form-control" })
                     </td>
                 </tr>
             </table>
@@ -67,7 +67,7 @@
                     </td>
                     <td>
                         @Html.LabelFor(pv => pv.Marca)
-                        @Html.TextBoxFor(pv => pv.Marca, new { @class = "form-control" })
+                        @Html.DropDownListFor(pv => Model.Marca, new SelectList(Model.LstMarcas, "IdDominio", "VlrDominio"), htmlAttributes: new { @class = "form-control", id = "color" })
                     </td>
                 </tr>
                 <tr>
@@ -83,7 +83,7 @@
                 <tr>
                     <td>
                         @Html.LabelFor(pv => pv.TipoVehiculo)
-                        @Html.TextBoxFor(pv => pv.TipoVehiculo, new { @class = "form-control" })
+                        @Html.DropDownListFor(pv => Model.TipoVehiculo, new SelectList(Model.LstTipoVehiculo, "IdDominio", "VlrDominio"), htmlAttributes: new { @class = "form-control", id = "color" })
                     </td>
                 </tr>
             </table>
@@ -94,12 +94,15 @@
         }
     </div>
 </div>
+
 @section scripts
 {
+    <!--
     <script>
         $("#btnGuardar").on("click", function(e) {
         e.preventDefault();
         return true;
     });
     </script>
+        -->
 }
