@@ -1,0 +1,67 @@
+﻿@model List<CarCenterWebApp.Models.DTOs.PersonasDTO>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Pesonas</h2>
+<div class="row">
+    <div class="col-md-12">
+
+        <input type="button" class="btn btn-primary" value="Nuevo"
+               onclick="document.location.href='@Url.Content("~/Personas/Add")'" />
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>Identificacion</th>
+                <th>Nombres</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Correo</th>
+                <th>Especialidad</th>
+                <th>Tipo Persona</th>
+                <th>Contraseña</th>
+                <th>Estado Persona</th>
+            </tr>
+            @foreach(var oPersona in Model)
+            {
+                <tr>
+                    <td>@oPersona.Identificacion</td>
+                    <td>@oPersona.Nombres</td>
+                    <td>@oPersona.Telefono</td>
+                    <td>@oPersona.Direccion</td>
+                    <td>@oPersona.Correo</td>
+                    <td>@oPersona.Especialidad</td>
+                    <td>@oPersona.Tipo_Persona</td>
+                    <td>@oPersona.Contrasena</td>
+                    <td>@oPersona.Estado_Persona</td>
+                    <td>
+                        <input type="button" value="Editar" class="btn btn-default" 
+                               onclick="document.location.href='@Url.Content("~/Personas/Edit/?identificacion="+oPersona.Identificacion)'"/>
+
+                        <input type="button" value="Eliminar" class="btn btn-danger"
+                               onclick="jsDelete('@oPersona.Identificacion')"/>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<script>
+    function jsDelete(identificacion) {
+        if (confirm("Está seguro de eliminar este registro?")) {
+            url = "@Url.Content("~/Personas/Delete")" + "/?identificacion=" + identificacion;
+
+            $.post(url, function (data){
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/Personas/")";
+                } else {
+                    alert("Error :(");
+                }
+            })
+        }
+    }
+</script>
