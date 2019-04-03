@@ -20,5 +20,8 @@ namespace CarCenterWebApp.Models.DTOs
         [Display(Name = "Valor Dominio")]
         [StringLength(50)]
         public String VlrDominio { get; set; }
+
+        public List<DominiosDTO> lstEspecialidad { get; set; }
+        public List<DominiosDTO> lstTipoPersona { get; set; }
     }
 }
