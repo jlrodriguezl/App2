@@ -61,7 +61,7 @@ namespace CarCenterWebApp.Controllers
             //Validar los datos del formulario con base en los Data Annotations
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return Index();
             }
             //Insertar datos en la BD
             using (carcenterEntities db = new carcenterEntities())

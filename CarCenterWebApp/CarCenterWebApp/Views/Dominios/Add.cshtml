@@ -10,9 +10,7 @@
         <!-- Inicio del formulario de inserción
         Params(1->Action, 2->Controller, 3->Method, 4->Params)-->
         @using (Html.BeginForm("Add", "Dominios", FormMethod.Post, new { role = "form" }))
-        {
-            <!--Helper de seguridad para evitar invocaciones al form desde fuera de la app-->
-            @Html.AntiForgeryToken()
+        {            
             <!--Helper para mostrar mensajes de error producidos por DataAnnotations-->
             @Html.ValidationMessage("error", new { @class = "text-danger" })
 
