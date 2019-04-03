@@ -51,17 +51,77 @@ namespace CarCenterWebApp.Controllers
             {
                 return View(model);
             }
-            //VAMOS AQUIIIIIII
+            using (carcenterEntities db = new carcenterEntities()) {
 
-            return View();
+                PERSONAS oPersona = new PERSONAS();
+                oPersona.IDENTIFICACION = model.Identificacion;
+                oPersona.NOMBRES = model.Nombres;
+                oPersona.TELEFONO = model.Telefono;
+                oPersona.DIRECCION = model.Direccion;
+                oPersona.CORREO = model.Correo;
+                oPersona.ESPECIALIDAD = model.Especialidad;
+                oPersona.TIPO_PERSONA = model.Tipo_Persona;
+                oPersona.CONTRASENA = model.Contrasena;
+                oPersona.ESTADO_PERSONA = model.Estado_Persona;
+
+                db.PERSONAS.Add(oPersona);
+                db.SaveChanges();
+            }
+
+                return Redirect(Url.Content("~/Personas/"));
 
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(Decimal Identificacion)
         {
-            return View();
+            PersonasDTO model = new PersonasDTO();
+            using (carcenterEntities db = new carcenterEntities()) {
+                var oPersona = db.PERSONAS.Find(Identificacion);
+                model.Identificacion = oPersona.IDENTIFICACION;
+                model.Nombres = oPersona.NOMBRES;
+                model.Telefono = oPersona.TELEFONO;
+                model.Direccion = oPersona.DIRECCION;
+                model.Correo = oPersona.CORREO;
+                model.Especialidad = oPersona.ESPECIALIDAD;
+                model.Tipo_Persona = oPersona.TIPO_PERSONA;
+                model.Contrasena = oPersona.CONTRASENA;
+                model.Estado_Persona = oPersona.ESTADO_PERSONA;
+            }
+                return View(model);
 
         }
+        [HttpPost]
+        public ActionResult Edit(PersonasDTO model) {
 
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            using (carcenterEntities db = new carcenterEntities())
+            {
+                var oPersona = db.PERSONAS.Find(model.Identificacion);
+                oPersona.IDENTIFICACION = model.Identificacion;
+                oPersona.NOMBRES = model.Nombres;
+                oPersona.TELEFONO = model.Telefono;
+                oPersona.DIRECCION = model.Direccion;
+                oPersona.CORREO = model.Correo;
+                oPersona.ESPECIALIDAD = model.Especialidad;
+                oPersona.TIPO_PERSONA = model.Tipo_Persona;
+                oPersona.CONTRASENA = model.Contrasena;
+                oPersona.ESTADO_PERSONA = model.Estado_Persona;
+
+            }
+            return Redirect(Url.Content("~/Personas/"));
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Decimal Identificacion) {
+            using (carcenterEntities db = new carcenterEntities()) {
+                var oPersona = db.PERSONAS.Find(Identificacion);
+                db.PERSONAS.Remove(oPersona);
+                db.SaveChanges();
+            }
+            return Content("1");
+        }
     }
 }
