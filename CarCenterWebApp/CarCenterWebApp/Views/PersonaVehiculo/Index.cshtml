@@ -1,0 +1,117 @@
+﻿
+@model CarCenterWebApp.Models.DTOs.PersonaVehiculoDTO
+@{
+    ViewBag.Title = "Formulario de Registro";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";    
+}
+
+<h3>@ViewBag.Title</h3>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Inicio del formulario de inserción Params(1->Action, 2->Controller, 3->Method, 4->Params)-->
+            @using (Html.BeginForm("Index", "PersonaVehiculo", FormMethod.Post, new { role = "form" }))
+            {
+                <!--Helper para mostrar mensajes de error producidos por DataAnnotations-->
+                @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+                <table class="table table-borderless">
+                    <tr>
+                        <td colspan="2">
+                            <p class="text-info">Datos Cliente</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(pv => pv.Identificacion)
+                            @Html.TextBoxFor(pv => pv.Identificacion, new { @class = "form-control" })
+                            @Html.ValidationMessage("Identificacion", new { @class = "text-danger"})
+                        </td>
+                        <td>
+                            @Html.LabelFor(pv => pv.Nombres)
+                            @Html.TextBoxFor(pv => pv.Nombres, new { @class = "form-control" })
+                            @Html.ValidationMessage("Nombres", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(pv => pv.Telefono)
+                            @Html.TextBoxFor(pv => pv.Telefono, new { @class = "form-control" })
+                            @Html.ValidationMessage("Telefono", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.LabelFor(pv => pv.Direccion)
+                            @Html.TextBoxFor(pv => pv.Direccion, new { @class = "form-control" })                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(pv => pv.Correo)
+                            @Html.TextBoxFor(pv => pv.Correo, new { @class = "form-control" })
+                            @Html.ValidationMessage("Correo", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.LabelFor(pv => pv.Contrasena)
+                            @Html.PasswordFor(pv => pv.Contrasena, new { @class = "form-control" })
+                            @Html.ValidationMessage("Contrasena", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <table class="table table-borderless">
+                    <tr>
+                        <td colspan="2">
+                            <span class="text-info">Datos Vehículo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(pv => pv.Placa)
+                            @Html.TextBoxFor(pv => pv.Placa, new { @class = "form-control" })
+                            @Html.ValidationMessage("Placa", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.LabelFor(pv => pv.Marca)
+                            @Html.DropDownListFor(pv => Model.Marca, new SelectList(Model.LstMarcas, "IdDominio", "VlrDominio"), htmlAttributes: new { @class = "form-control", id = "marca" })
+                            @Html.ValidationMessage("Marca", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(pv => pv.Modelo)
+                            @Html.TextBoxFor(pv => pv.Modelo, new { @class = "form-control" })
+                            @Html.ValidationMessage("Modelo", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.LabelFor(pv => pv.Color)
+                            @Html.DropDownListFor(pv => Model.Color, new SelectList(Model.LstColores, "IdDominio", "VlrDominio"), htmlAttributes: new { @class = "form-control", id = "color" })
+                            @Html.ValidationMessage("Color", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(pv => pv.TipoVehiculo)
+                            @Html.DropDownListFor(pv => Model.TipoVehiculo, new SelectList(Model.LstTipoVehiculo, "IdDominio", "VlrDominio"), htmlAttributes: new { @class = "form-control", id = "tipoVehiculo" })
+                            @Html.ValidationMessage("TipoVehiculo", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <div style="text-align: right">
+                    <input type="submit" class="btn btn-success" value="Guardar" id="btnGuardar" />
+                </div>
+            }
+        </div>
+    </div>
+
+@section scripts
+{
+    <!--
+    <script>
+        $("#btnGuardar").on("click", function(e) {
+        e.preventDefault();
+        return true;
+    });
+    </script>
+        -->
+}

@@ -137,6 +137,7 @@
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\DominiosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonaVehiculoController.cs" />
     <Compile Include="Filters\VerificarSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -148,6 +149,7 @@
       <DependentUpon>ModelCarCenter.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DTOs\DominiosDTO.cs" />
+    <Compile Include="Models\DTOs\PersonaVehiculoDTO.cs" />
     <Compile Include="Models\FACTURAS.cs">
       <DependentUpon>ModelCarCenter.tt</DependentUpon>
     </Compile>
@@ -197,6 +199,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\CarCenterLogo.jpg" />
+    <Content Include="Content\Images\logo_poli.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -231,6 +235,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Content\Images\CarCenterIcono.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -250,6 +255,8 @@
     <Content Include="Views\Dominios\Index.cshtml" />
     <Content Include="Views\Dominios\Add.cshtml" />
     <Content Include="Views\Dominios\Edit.cshtml" />
+    <Content Include="Views\PersonaVehiculo\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
