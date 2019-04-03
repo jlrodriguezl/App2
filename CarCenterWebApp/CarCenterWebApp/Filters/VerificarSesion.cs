@@ -17,12 +17,14 @@ namespace CarCenterWebApp.Filters
             //Si la sesión no existe o no se ha iniciado sesión....
             if(oPersona == null)
             {
-                //Si la petición viene de un controlador diferente a AccesoController, regresamos
+                //Si la petición viene de un controlador diferente a AccesoController o HomeController, regresamos
                 //al usuario a la pantalla de login
-                if(filterContext.Controller is AccesoController == false)
+                if(filterContext.Controller is AccesoController == false &&
+                    filterContext.Controller is HomeController == false &&
+                    filterContext.Controller is PersonaVehiculoController == false)
                 {
                     filterContext.HttpContext.Response.Redirect("~/Acceso/Index");
-                }
+                }                
             }
             else
             {
