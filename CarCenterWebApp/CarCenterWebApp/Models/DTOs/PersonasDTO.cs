@@ -35,7 +35,7 @@ namespace CarCenterWebApp.Models.DTOs
 
         [Required]
         [StringLength(10)]
-        [Display(Name = "EstadoPersona")]
+        [Display(Name = "Estado Persona")]
         public String Estado_Persona { get; set; }
 
         [Required]

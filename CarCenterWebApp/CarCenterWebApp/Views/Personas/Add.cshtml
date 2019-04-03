@@ -1,7 +1,49 @@
-﻿
+﻿@model CarCenterWebApp.Models.DTOs.PersonasDTO
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Agregar persona";
 }
 
-<h2>Add</h2>
+<h2>@ViewBag.Title</h2>
 
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Add", "Personas", FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("Error", new { @class = "text-danger" })
+
+            @Html.LabelFor(p => p.Identificacion)
+            @Html.TextBoxFor(p => p.Identificacion, new { @class = "form-control" })
+
+            @Html.LabelFor(p => p.Nombres)
+            @Html.TextBoxFor(p => p.Nombres, new { @class = "form-control" })
+
+            @Html.LabelFor(p => p.Telefono)
+            @Html.TextBoxFor(p => p.Telefono, new { @class = "form-control" })
+
+            @Html.LabelFor(p => p.Direccion)
+            @Html.TextBoxFor(p => p.Direccion, new { @class = "form-control" })
+
+            @Html.LabelFor(p => p.Correo)
+            @Html.TextBoxFor(p => p.Correo, new { @class = "form-control" })
+
+            @Html.LabelFor(p => p.Especialidad)
+            @Html.TextBoxFor(p => p.Especialidad, new { @class = "form-control" })
+
+            @Html.LabelFor(p => p.Tipo_Persona)
+            @Html.TextBoxFor(p => p.Tipo_Persona, new { @class = "form-control" })
+
+            @Html.LabelFor(p => p.Contrasena)
+            @Html.TextBoxFor(p => p.Contrasena, new { @class = "form-control" })
+
+            @Html.LabelFor(p => p.Estado_Persona)
+            @Html.TextBoxFor(p => p.Estado_Persona, new { @class = "form-control" })
+
+            <br />
+        <div style="text-align: right">
+            <input type="submit" class="btn btn-success" value="Guardar" />
+        </div>
+        }
+    </div>
+
+</div>
