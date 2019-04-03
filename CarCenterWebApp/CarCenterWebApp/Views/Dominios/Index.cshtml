@@ -7,10 +7,13 @@
 <h2>Dominios</h2>
 <div class="row">
     <div class="col-md-12">
-        <input type="button" class="btn btn-primary" value="Nuevo"
-               onclick="document.location.href='@Url.Content("~/Dominios/Add")'" />
+        <input type="button" class="btn btn-primary" value=" Nuevo"
+               onclick="document.location.href='@Url.Content("~/Dominios/Add")'"/>
+
+
     </div>
-</div>
+
+    </div>
 <div class="row">
     <div class="col-lg-12">
         <table class="table table-bordered">
@@ -18,6 +21,7 @@
                 <th>Tipo Dominio</th>
                 <th>Id Dominio</th>
                 <th>Valor Dominio</th>
+                <th>Acciones</th>
             </tr>
             @foreach (var oDominio in Model)
             {
@@ -26,30 +30,21 @@
                 <td>@oDominio.IdDominio</td>
                 <td>@oDominio.VlrDominio</td>
                 <td>
-                    <input type="button" value="Editar" class="btn btn-default" 
-                           onclick="document.location.href='@Url.Content("~/Dominios/Edit/?tipoDominio="
-                                                           +oDominio.TipoDominio + "&idDominio=" 
-                                                           +oDominio.IdDominio)'"/>
-                    <input type="button" value="Eliminar" class="btn btn-danger" 
-                           onclick="jsDelete('@oDominio.TipoDominio', '@oDominio.IdDominio');"/>
-                </td>
+                    <input type="button" value="Editar" class="btn btn-default"
+                          onclick="document.location.href='@Url.Content("~/Dominios/Edit/?tipoDominio="+oDominio.TipoDominio+"&idDominio="+oDominio.IdDominio)'"/>
+                    <input type="button" value="Eliminar" class="btn btn-danger"
+                           onclick="jsDelete('@oDominio.TipoDominio','@oDominio.IdDominio');"/>
+
+                </td>         
             </tr>
             }
         </table>
     </div>
 </div>
 <script>
-    function jsDelete(tipo, id) {
-        if (confirm("Está seguro de eliminar este registro?")) {
-            url = "@Url.Content("~/Dominios/Delete")" + "/?tipo=" + tipo + "&id=" + id;
 
-            $.post(url, function (data) {
-                if (data == "1") {
-                    document.location.href = "@Url.Content("~/Dominios/")";
-                } else {
-                    alert("Error :(");
-                }
-            })
-        }
+    function jsDelete(tipo, id) {
+
+
     }
 </script>

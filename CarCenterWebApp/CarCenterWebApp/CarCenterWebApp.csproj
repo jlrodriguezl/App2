@@ -139,6 +139,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonasController.cs" />
     <Compile Include="Controllers\PersonaVehiculoController.cs" />
+    <Compile Include="Controllers\RepuestosController.cs" />
     <Compile Include="Filters\VerificarSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,6 +153,7 @@
     <Compile Include="Models\DTOs\DominiosDTO.cs" />
     <Compile Include="Models\DTOs\PersonasDTO.cs" />
     <Compile Include="Models\DTOs\PersonaVehiculoDTO.cs" />
+    <Compile Include="Models\DTOs\RepuestosDTO.cs" />
     <Compile Include="Models\FACTURAS.cs">
       <DependentUpon>ModelCarCenter.tt</DependentUpon>
     </Compile>
@@ -254,7 +256,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Acceso\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
-    <Content Include="Views\Dominios\Index.cshtml" />
     <Content Include="Views\Dominios\Add.cshtml" />
     <Content Include="Views\Dominios\Edit.cshtml" />
     <Content Include="Views\PersonaVehiculo\Index.cshtml" />
@@ -262,6 +263,11 @@
     <Content Include="Views\Personas\Edit.cshtml" />
     <Content Include="Views\Personas\Index.cshtml" />
     <Content Include="Views\Personas\Add.cshtml" />
+    <Content Include="Views\Dominios\Index.cshtml" />
+    <Content Include="Views\Repuestos\Index.cshtml" />
+    <Content Include="Views\Repuestos\Add.cshtml" />
+    <Content Include="Views\Repuestos\Edit.cshtml" />
+    <Content Include="Views\Repuestos\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
