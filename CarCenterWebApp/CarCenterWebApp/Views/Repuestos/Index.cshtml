@@ -1,0 +1,51 @@
+﻿
+@model List<CarCenterWebApp.Models.DTOs.RepuestosDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Repuestos</h2>
+<div class="row">
+    <div class="col-md-12">
+        <input type="button" class="btn btn-primary" value=" Nuevo"
+               onclick="document.location.href='@Url.Content("~/Repuestos/Add")'" />
+
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>Id Repuestos</th>
+                <th>Descripcion Mensaje</th>
+                <th>Acciones</th>
+            </tr>
+            @foreach (var oRepuestos in Model)
+            {
+                <tr>
+                    <td>@oRepuestos.Idrepuesto</td>
+                    <td>@oRepuestos.descmensaje</td>
+                    
+                    <td>
+                        <input type="button" value="Editar" class="btn btn-default"
+                               onclick="document.location.href='@Url.Content("~/Repuestos/Edit/?iRepuesto="+oRepuestos.Idrepuesto+"&descmensaje="+oRepuestos.descmensaje)'" />
+                        <input type="button" value="Eliminar" class="btn btn-danger"
+                               onclick="jsDelete('@oRepuestos.Idrepuesto','@oRepuestos.descmensaje');" />
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<script>
+
+    function jsDelete(tipo, id) {
+
+
+    }
+</script>
+
