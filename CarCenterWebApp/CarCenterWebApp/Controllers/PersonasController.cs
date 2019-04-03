@@ -54,9 +54,9 @@ namespace CarCenterWebApp.Controllers
             using (carcenterEntities db = new carcenterEntities()) {
 
                 PERSONAS oPersona = new PERSONAS();
-                oPersona.IDENTIFICACION = model.Identificacion;
+                oPersona.IDENTIFICACION = Convert.ToDecimal(model.Identificacion);
                 oPersona.NOMBRES = model.Nombres;
-                oPersona.TELEFONO = model.Telefono;
+                oPersona.TELEFONO = Convert.ToDecimal(model.Telefono);
                 oPersona.DIRECCION = model.Direccion;
                 oPersona.CORREO = model.Correo;
                 oPersona.ESPECIALIDAD = model.Especialidad;
@@ -100,9 +100,9 @@ namespace CarCenterWebApp.Controllers
             using (carcenterEntities db = new carcenterEntities())
             {
                 var oPersona = db.PERSONAS.Find(model.Identificacion);
-                oPersona.IDENTIFICACION = model.Identificacion;
+                oPersona.IDENTIFICACION = Convert.ToDecimal(model.Identificacion);
                 oPersona.NOMBRES = model.Nombres;
-                oPersona.TELEFONO = model.Telefono;
+                oPersona.TELEFONO = Convert.ToDecimal(model.Telefono);
                 oPersona.DIRECCION = model.Direccion;
                 oPersona.CORREO = model.Correo;
                 oPersona.ESPECIALIDAD = model.Especialidad;
